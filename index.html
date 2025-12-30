@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>ตัวแปรตรงนี้-------------------แปรตรงนี้-------------------IDER</title>
+<title>จอง</title>
 
 <style>
 body {
@@ -114,7 +114,7 @@ button:hover {
 <audio id="alertSound" src="https://www.myinstants.com/media/sounds/bell.mp3"></audio>
 
 <script>
-let mygame = "N/A"; //ตัวแปรตรงนี้-------------------
+let mygame = "N/A"; // ตัวแปรเกม
 document.getElementById("gameTitle").innerText = "จอง";
 
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyTnF-lhnXE757pYyZxCSilQOddR54qqMVxMYuFg0CMOeQ58L-Bkc0BF7Eo9cD_hBW-/exec";
@@ -134,11 +134,12 @@ function reserve() {
     document.getElementById("spinner").classList.add("show");
     document.getElementById("queue").innerText = "กำลังโหลด…";
 
+    // ✅ encodeURIComponent เพื่อกันเลข 0 หาย
     fetch(WEB_APP_URL, {
         method: "POST",
         body: new URLSearchParams({
             name: userName,
-            className: cls,
+            className: encodeURIComponent(cls),
             game: mygame
         })
     })
@@ -174,9 +175,7 @@ function updateQueue() {
             queueEl.innerText = "ถึงคิวของคุณแล้ว 😀";
             queueEl.classList.add("highlight");
             document.getElementById("alertSound").play();
-            //notifyUser("ถึงคิวคุณแล้ว!");
             document.getElementById("spinner").classList.remove("show");
-            //notifyUser(intervalId);
         } else if (!isNaN(qInt)) {
             queueEl.innerText = qInt;
             queueEl.classList.remove("highlight");
