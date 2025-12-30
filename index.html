@@ -84,7 +84,7 @@ button:hover { background: #28a239; }
 </div>
 
 <div id="loading" class="loading">
-  <div>เหลืออีก</div>
+  <div id="text">เหลืออีก</div>
   <div id="queue" class="queue">กำลังตรวจสอบ…</div>
 </div>
 
@@ -92,7 +92,7 @@ button:hover { background: #28a239; }
 <audio id="alertSound" src="https://www.myinstants.com/media/sounds/bell.mp3"></audio>
 
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwz4yldY_Yb-vR1Fr1QrsbSc4X4rIUMwkaCkPVFFRnLswde3iQSatGnqD6uy6As1fOI/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz9t7D80xxgximEr9al0SCk2fCAlOs8HUAUqoJrQ34yyzHNqoRcZY0SZXMfEq1gqVjS/exec";
 let userName = "";
 let intervalId = null;
 let mygame = "N/A";
@@ -143,7 +143,6 @@ function updateQueue() {
 
       const qInt = Number(q);
 
-      // ✅ ถ้าเหลือ 0 เท่านั้นถึงคิวจริง
       if (!isNaN(qInt) && qInt === 0) {
         queueEl.innerText = "ถึงคิวของคุณแล้ว 😀";
         queueEl.classList.add("highlight");
@@ -151,7 +150,7 @@ function updateQueue() {
         document.getElementById("spinner").classList.remove("show");
         clearInterval(intervalId);
       } else if (!isNaN(qInt)) {
-        queueEl.innerText = `เหลืออีก ${qInt}`; // เช่น เหลืออีก 1, 2, 3...
+        queueEl.innerText = `เหลืออีก ${qInt}`;
         queueEl.classList.remove("highlight");
       } else {
         queueEl.innerText = "เกิดข้อผิดพลาด";
