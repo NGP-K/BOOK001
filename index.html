@@ -144,7 +144,7 @@ function updateQueue() {
 
       const qInt = Number(q);
 
-      if (!isNaN(qInt) && qInt === 0) {
+      if (!isNaN(qInt) && qInt === -1) {
         queueEl.innerText = "ถึงคิวของคุณแล้ว 😀";
         queueEl.classList.add("highlight");
         document.getElementById("alertSound").play();
