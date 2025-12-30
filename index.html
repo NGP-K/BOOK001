@@ -93,7 +93,7 @@ button:hover { background: #28a239; }
 <audio id="alertSound" src="https://www.myinstants.com/media/sounds/bell.mp3"></audio>
 
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwp0Nn5MS-qxK1xFJGNn2VGdBIkXoDM-QT7M9-ApODfL1eM9C6jtduVGMWdG0WJZCbN/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyH74Ra5F9SvvtnCynM9BkvsCIVd385pnoOAxdYTqJ5kK33ERDGXAsolcFJievoDxpk/exec";
 let userName = "";
 let intervalId = null;
 let mygame = "N/A";
@@ -151,7 +151,7 @@ function updateQueue() {
         document.getElementById("spinner").classList.remove("show");
         clearInterval(intervalId);
       } else if (!isNaN(qInt)) {
-        queueEl.innerText = qInt; // เหลืออีกกี่คนก่อนถึงคิว
+        queueEl.innerText = qInt; // แสดงว่ารออีกกี่คิว
         queueEl.classList.remove("highlight");
       } else {
         queueEl.innerText = "เกิดข้อผิดพลาด";
